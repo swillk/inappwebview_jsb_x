@@ -1,0 +1,5 @@
+name: inappwebview_jsb_x
+
+packages:
+  - .
+  - example/*

@@ -1,0 +1,9 @@
+# melos_managed_dependency_overrides: inappwebview_jsb_x
+dependency_overrides:
+  inappwebview_jsb_x:
+    path: ../..
+  flutter_inappwebview_web:
+    git:
+      url: git@github.com:p-mazhnik/flutter_inappwebview.git
+      path: flutter_inappwebview_web
+      ref: 7cac4c3c0ce50302cb9144901f425d00e4bf4870 

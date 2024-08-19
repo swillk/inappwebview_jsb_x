@@ -1,0 +1,30 @@
+name: inappwebview_jsb_x
+description: A Very Good Project created by Very Good CLI.
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.4.0
+  flutter: ^3.22.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_inappwebview: ^6.0.0
+  json_annotation: ^4.9.0
+ 
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  melos: ^6.1.0
+  mocktail: ^1.0.4
+  very_good_analysis: ^6.0.0
+
+flutter: 
+  assets:
+    - packages/inappwebview_jsb_x/assets/javascript/web/es5.js
+    - packages/inappwebview_jsb_x/assets/javascript/web/es7.js
+    - packages/inappwebview_jsb_x/assets/javascript/web_support.js
+    - packages/inappwebview_jsb_x/assets/javascript/native/es5.js
+    - packages/inappwebview_jsb_x/assets/javascript/native/es7.js

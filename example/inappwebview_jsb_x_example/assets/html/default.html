@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>es5</title>
+</head>
+
+<body>
+    <script type='text/javascript'>
+
+        function sendHello() {
+            window.WebViewJavascriptBridge.send(
+                'hello', function (responseData) {
+                    console.log("sendHello res ", responseData);
+                }
+            );
+        }
+        function getScreenInfo() {
+            var data = {'method':'getScreenInfo'};
+            window.WebViewJavascriptBridge.callHandler('AppEcho', data, function (responseData) {
+                console.log("getScreenInfo res ", responseData);
+                // document.getElementById("result").innerText = '<p>' + JSON.stringify(responseData) + '</p>';
+            });
+        }
+
+        function requestApi() {
+            var data =  {'method':'get', 'data': {'path':'https://api.agify.io/?name=meelad',},};
+            window.WebViewJavascriptBridge.callHandler('RequestEcho', data, function (responseData) {
+                console.log("requestApi res ", responseData);
+                // document.getElementById("result").innerText = '<p>' + JSON.stringify(responseData) + '</p>';
+            });
+        }
+    </script>
+
+    <div style="font-size: 48px;">
+        <p>webview</p>
+        <p>result:</p>
+        <div id="result"/>
+        <button onclick="sendHello()" style="font-size: 48px;">sendHello</button>
+        <button onclick="getScreenInfo()" style="font-size: 48px;">getScreenInfo</button>
+        <button onclick="requestApi()" style="font-size: 48px;">requestApi</button>
+    </div>
+
+</body>
+
+</html>
