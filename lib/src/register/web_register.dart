@@ -12,6 +12,12 @@ void createdRegister(
 ) =>
     throw UnimplementedError();
 
+/// IFrame request focus
+void iFrameRequestFocus() => throw UnimplementedError();
+
+/// IFrame un focus
+void iFrameUnFocus() => throw UnimplementedError();
+
 /// default inject javascript
 Future<String> get defaultInceptJS => throw UnimplementedError();
 

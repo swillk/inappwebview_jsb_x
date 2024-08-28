@@ -15,6 +15,12 @@ void createdRegister(
   );
 }
 
+/// IFrame request focus
+void iFrameRequestFocus() => throw UnimplementedError();
+
+/// IFrame un focus
+void iFrameUnFocus() => throw UnimplementedError();
+
 /// Register event not need implemented in native
 void registerEvent(InAppWebViewJSBridgeX jsBridge) {}
 

@@ -23,6 +23,20 @@ void registerEvent(InAppWebViewJSBridgeX jsBridge) {
   );
 }
 
+/// IFrame request focus
+void iFrameRequestFocus() {
+  final shadow = html.querySelector('flt-glass-pane')?.shadowRoot;
+  final platformViewSlot = shadow?.querySelector('flt-platform-view-slot');
+  platformViewSlot?.style.pointerEvents = 'auto';
+}
+
+/// IFrame un focus
+void iFrameUnFocus() {
+  final shadow = html.querySelector('flt-glass-pane')?.shadowRoot;
+  final platformViewSlot = shadow?.querySelector('flt-platform-view-slot');
+  platformViewSlot?.style.pointerEvents = 'none';
+}
+
 /// default inject javascript for web
 Future<String> get defaultInceptJS => rootBundle
     .loadString('packages/inappwebview_jsb_x/assets/javascript/web/es5.js');
