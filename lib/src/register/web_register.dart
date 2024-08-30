@@ -1,25 +1,36 @@
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:inappwebview_jsb_x/inappwebview_jsb_x.dart';
 
-///Register event
-void registerEvent(InAppWebViewJSBridgeX jsBridge) =>
-    throw UnimplementedError();
+import 'package:inappwebview_jsb_x/src/register/web_register_base.dart';
 
 /// Web register
-void createdRegister(
-  InAppWebViewController controller,
-  InAppWebViewJSBridgeX jsBridge,
-) =>
-    throw UnimplementedError();
+class WebRegister extends WebRegisterBase {
+  ///Register event
+  @override
+  void registerEvent(InAppWebViewJSBridgeX jsBridge) =>
+      throw UnimplementedError();
 
-/// IFrame request focus
-void iFrameRequestFocus() => throw UnimplementedError();
+  /// Web register
+  @override
+  void createdRegister(
+    InAppWebViewController controller,
+    InAppWebViewJSBridgeX jsBridge,
+  ) =>
+      throw UnimplementedError();
 
-/// IFrame un focus
-void iFrameUnFocus() => throw UnimplementedError();
+  /// IFrame request focus
+  @override
+  void iFrameRequestFocus() => throw UnimplementedError();
 
-/// default inject javascript
-Future<String> get defaultInceptJS => throw UnimplementedError();
+  /// IFrame un focus
+  @override
+  void iFrameUnFocus() => throw UnimplementedError();
 
-/// async inject javascript
-Future<String> get asyncInceptJS => throw UnimplementedError();
+  /// default inject javascript
+  @override
+  Future<String> get defaultInceptJS => throw UnimplementedError();
+
+  /// async inject javascript
+  @override
+  Future<String> get asyncInceptJS => throw UnimplementedError();
+}

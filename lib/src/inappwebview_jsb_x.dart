@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:inappwebview_jsb_x/inappwebview_jsb_x.dart';
+import 'package:inappwebview_jsb_x/src/register/web_register_base.dart';
 
 export 'register/web_register.dart'
     if (dart.library.html) 'register/web_register_web.dart'
@@ -32,6 +32,7 @@ class InAppWebViewJSBridgeX {
   final _completers = <int, Completer<Object?>>{};
   var _completerIndex = 0;
   final _handlers = <String, WebViewJSBridgeXHandler>{};
+  final WebRegister _webRegister = WebRegister();
 
   /// default handler
   WebViewJSBridgeXHandler? defaultHandler;
@@ -39,13 +40,16 @@ class InAppWebViewJSBridgeX {
   /// channel name
   String get channelName => 'FlutterJSBridgeChannel';
 
+  /// get web register
+  WebRegisterBase get register => _webRegister;
+
   /// inject javascript
   Future<void> injectJavascript({
     WebViewXInjectJsVersion esVersion = WebViewXInjectJsVersion.es5,
   }) async {
     final js = esVersion == WebViewXInjectJsVersion.es5
-        ? await defaultInceptJS
-        : await asyncInceptJS;
+        ? await _webRegister.defaultInceptJS
+        : await _webRegister.asyncInceptJS;
     await controller?.evaluateJavascript(source: js);
     await controller?.evaluateJavascript(
       source: await rootBundle.loadString(

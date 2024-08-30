@@ -78,7 +78,7 @@ class _WebViewState extends State<WebView> {
           allowsInlineMediaPlayback: true,
         );
     jsBridge = widget.jsBridge ?? InAppWebViewJSBridgeX();
-    registerEvent(jsBridge);
+    jsBridge.register.registerEvent(jsBridge);
   }
 
   @override
@@ -110,7 +110,7 @@ class _WebViewState extends State<WebView> {
         initialUrlRequest: widget.request,
         initialSettings: options,
         onWebViewCreated: (controller) async {
-          createdRegister(controller, jsBridge);
+          jsBridge.register.createdRegister(controller, jsBridge);
           if (!kIsWeb) {
             controller.addJavaScriptHandler(
               handlerName: jsBridge.channelName,
